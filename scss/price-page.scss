@@ -58,10 +58,12 @@ $sp-second: 425px;  // スマホ
     }
 
     @include sp{
-      font-size: 18px;
-      padding-left: 10px;
+      text-align: center;
+      margin-bottom: 20px;
+      padding-left: 0px;
+      height: 107px;
+      line-height: 107px;
     }
-
 
 
 }
@@ -410,19 +412,32 @@ body{
 
   .mainvisual{
     background-image: url(../img/common/mainvisual-2.png);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     height: 45vw;
     width: 100%;
     position: relative;
 
+    @include sp(){
+      background-size: 100% 100%;
+      height: 395px;
+      background-image: url(../img/common/mainvisual-2_sp.png);
+    }
+
 
     &_wrap{
       background-image: url(../img/service/mv-background.png);
-      background-size: contain;  
+      background-size: cover;  
       background-repeat: no-repeat;
       height: 45vw;
       width: 100%;
+
+
+      @include sp(){
+        background-size: 100% 100%;
+        height: 395px;
+        background-image: url(../img/common/mv-background_sp.png);
+      }
 
       .mv_inner_text{
         background-color: #FFFFFF;
@@ -439,7 +454,6 @@ body{
         background-image: url(../img/common/border-colorful.png);
         background-position: center;
 
-
         @include pc{
           padding: 50px 0px;
           max-width: 500px;
@@ -455,22 +469,32 @@ body{
 
 
         @include sp{
-          max-width: 280px;
+          max-width: 306px;
           width: 90%;
-          padding: 25px 0px;
-          background-size: 250px 72px;
+          padding: 75px 0px 79px;
+          background-size: 240px 170px;
         }
+
 
         .top_inner_title{
           font-weight: 900;
           font-size: 42px;
-        }/*inner_title*/
 
+          @include pc{
+            font-size: 38px;
+          }
+
+          @include tab{
+            font-size: 27px;
+          }
+
+          @include sp{
+            font-size: 24px;
+          }
+        }/*inner_title*/
       }/*mv-inner-teext*/
     }
   }/*mainvisual*/
-
-
 
 
   .intro_top{
@@ -480,6 +504,11 @@ body{
     @include tab{
       margin-top: 80px;
       margin-bottom: 70px;  
+    }
+
+    @include sp{
+      margin-top: 50px;
+      margin-bottom: 50px;  
     }
   
     .intro_wrap{
@@ -499,12 +528,12 @@ body{
 
             @include tab{
               font-size: 18px;
-              width: 80%;
+              width: 90%;
               margin: 0 auto;
             }
 
             @include sp{
-              font-size: 15px;
+              font-size: 16px;
             }
 
 
@@ -530,22 +559,25 @@ body{
       margin-left: 15px;  
     }
 
-      &_box{
-          max-width: 1200px;
-          width: 100%;
-          margin:  0 auto;
-          padding: 94px 160px 134px 160px;
-          box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.16);
-          border-radius: 41px;
+    &_box{
+        max-width: 1200px;
+        width: 100%;
+        margin:  0 auto;
+        padding: 94px 160px 134px 160px;
+        box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.16);
+        border-radius: 41px;
 
-          @include pc{
-            padding: 94px 60px 134px 60px;
-          }/*pc*/
+        @include pc{
+          padding: 94px 50px 134px 50px;
+        }/*pc*/
 
-          @include tab{
-            padding: 67px 30px 70px 30px;
-          }/*pc*/
-  
+        @include tab{
+          padding: 67px 30px 70px 30px;
+        }/*pc*/
+
+        @include sp-second(){
+          padding: 67px 18px 70px 18px;
+        }/*pc*/
 
           h2{
               @include h2_title;
@@ -583,9 +615,9 @@ body{
                   margin-top: 20px;
                 }
 
-                @include sp-second(){
-                  width: 200px;
-                  height: 120px;
+                @include sp(){
+                  width: 277px;
+                  height: 164px;
                 }
 
 
@@ -603,8 +635,8 @@ body{
             justify-content: space-between;
 
             @include sp{
-              display: block;
-              padding: 25px 30px 22.5px 30px;
+              flex-wrap: wrap;
+              padding: 25px 18px 22.5px 18px;
             }
 
             p{
@@ -621,8 +653,14 @@ body{
               width: 200px;
 
               @include sp{
-                width: 170px;
-                height: 120px;
+                width: 283px;
+                height: 158px;
+                margin-bottom: 25px;
+              }
+
+              @include sp-second(){
+                width: 100%;
+                height: auto;
               }
 
             }
@@ -645,14 +683,12 @@ body{
                 }
 
                 @include sp{
-                  font-size: 16px;
-                  padding-top: 10px;
-                  padding-bottom: 10px;  
+                  font-size: 23px;
+                  padding-top: 17px;
+                  padding-bottom: 17px;  
                 }
 
-                @include sp-second(){
-                  font-size: 14px;
-                }
+           
 
             }
 
@@ -696,7 +732,6 @@ body{
                     margin-bottom: 15px;
 
                     @include tab{
-                      font-size: 14px;
                       margin-bottom: 10px;
                     }
 
@@ -721,6 +756,15 @@ body{
               border-spacing: 13px 4px;
               margin-top: 54px;
 
+              @include tab{
+                border-spacing: 6px 4px;
+              }
+
+
+              @include sp{
+                border-spacing: 3px 3px;
+              }
+
               .top_table{
                   height: 61px;
               }
@@ -734,7 +778,7 @@ body{
                     font-size: 20px;
 
                     @include sp{
-                      font-size: 16px;
+                      font-size: 7px;
                     }
 
                 }/*list*/
@@ -745,7 +789,7 @@ body{
                     font-size: 20px;
 
                     @include sp{
-                      font-size: 16px;
+                      font-size: 7px;
                     }
                 }
 
@@ -766,7 +810,7 @@ body{
 
 
                       @include sp{
-                        font-size: 20px;
+                        font-size: 13px;
                       }
 
 
@@ -776,7 +820,11 @@ body{
                           letter-spacing: 2.6px;
 
                           @include tab{
-                            font-size: 16px;
+                            font-size: 14px;
+                          }
+
+                          @include sp{
+                            font-size: 8px;
                           }
 
                       }/*subb-category*/
@@ -788,6 +836,16 @@ body{
                     width: 35%;
                     text-align: center;
                     font-weight: bold;
+
+                    @include tab{
+                      font-size: 20px;
+                    }
+
+
+                    @include sp{
+                      font-size: 8px;
+                    }
+
                 }
               }/*tr*/
           }/*company_table*/
@@ -797,9 +855,6 @@ body{
               letter-spacing: 0.4px;
               font-size: 16px;
 
-              @include tab{
-                font-size: 14px;
-              }
 
           }/*text*/
 
@@ -861,6 +916,7 @@ body{
   }/*content*/
 
 
+
   .contact_wrap{
     margin-bottom: 94px;
     margin-top: 109px;
@@ -868,6 +924,7 @@ body{
     @include sp{
       margin-bottom: 70px;
       margin-top: 90px;
+      text-align: center;
     }
 
     .contact_title{
@@ -880,14 +937,26 @@ body{
       }/*tab*/
 
       @include sp{
-        font-size: 20px;
+        display: none;
       }
 
-      @include sp-second(){
-        font-size: 18px;
+
+    }
+
+    .contact_title_sp{
+      display: none;
+
+      @include sp{
+        display: block;
+        font-size: 20px;
+        margin-bottom: 16px;
+        width: 100%;
+        line-height: 1.6;
+        font-weight: 500;
       }
 
     }
+
 
     .btn{
         width: 708px;
@@ -902,12 +971,11 @@ body{
         }
 
         @include sp{
-          width: 80%;
+          width: 92.5%;
           margin: 0 auto;
         }
 
         @include sp-second(){
-          width: 280px;
         }
 
         a{
@@ -931,15 +999,11 @@ body{
 
             @include sp{
               font-size: 20px;
-              height: 65px;
-              line-height: 65px;
+              height: 67px;
+              line-height: 67px;
             }
 
-            @include sp-second(){
-              font-size: 14px;
-              height: 60px;
-              line-height:60px;
-            }
+      
          
         }/*a*/
     }/*btn*/
@@ -955,6 +1019,12 @@ body{
         font-weight: bold;
         font-size: 18px;
         letter-spacing: 0.45px;
+
+        @include sp{
+          font-size: 16px;
+          margin-top: 18px;
+          margin-bottom: 21px;
+        }
     }
 
     .contact_tel{
@@ -978,7 +1048,7 @@ body{
             font-size: 26px;
 
             @include tab{
-              font-size: 20px;
+              font-size: 26px;
             }
 
           .number{
@@ -992,6 +1062,9 @@ body{
 
             @include tab{
               font-size: 22px;
+            }
+            @include sp{
+              font-size: 28px;
             }
 
             img{
@@ -1015,6 +1088,7 @@ body{
       #shinjuku{
           margin-right: 18px;
 
+
           @include tab{
             margin-right: 12px;
           }
@@ -1034,8 +1108,14 @@ body{
         @include sp{
           margin: 0 auto;
         }
+
+
     }/*yokohama*/
+
+
+
 }/*contact_wrap*/
+
 
 
   

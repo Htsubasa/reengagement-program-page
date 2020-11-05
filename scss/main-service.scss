@@ -47,6 +47,7 @@ $sp-second: 425px;  // スマホ
     margin-bottom: 40px;
     font-weight: 900;
 
+  
 
     @include tab{
       width: 100%;
@@ -58,10 +59,13 @@ $sp-second: 425px;  // スマホ
     }
 
     @include sp{
-      font-size: 18px;
-      padding-left: 10px;
+      text-align: center;
+      margin-bottom: 20px;
+      padding-left: 0px;
+      height: auto;
+      line-height: 30px;
+      padding: 21px 0px 24px 0px;
     }
-
 }
 
 html{
@@ -407,21 +411,35 @@ body{
     }/*warp*/
   }/*header*/
 
+
   .mainvisual{
     background-image: url(../img/service/mainvisual3.png);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     height: 45vw;
     width: 100%;
     position: relative;
 
+    @include sp(){
+      background-size: 100% 100%;
+      height: 395px;
+      background-image: url(../img/service/mainvisual3_sp.png);
+    }
+
 
     &_wrap{
       background-image: url(../img/service/mv-background.png);
-      background-size: contain;  
+      background-size: cover;  
       background-repeat: no-repeat;
       height: 45vw;
       width: 100%;
+
+
+      @include sp(){
+        background-size: 100% 100%;
+        height: 395px;
+        background-image: url(../img/common/mv-background_sp.png);
+      }
 
       .mv_inner_text{
         background-color: #FFFFFF;
@@ -437,16 +455,54 @@ body{
         transform : translate(-50%,-50%);
         background-image: url(../img/common/border-colorful.png);
         background-position: center;
-        
+
+        @include pc{
+          padding: 50px 0px;
+          max-width: 500px;
+          background-size: 480px 130px;
+        }
+
+        @include tab{
+          max-width: 450px;
+          width: 90%;
+          padding: 30px 0px;
+          background-size: 410px 90px;
+        }
+
+
+        @include sp{
+          max-width: 306px;
+          width: 90%;
+          padding: 75px 0px 79px;
+          background-size: 240px 170px;
+        }
+
         .top_inner_text{
           font-size: 27px;
           font-weight: 900;
+
+          @include sp{
+            font-size: 18px;
+            margin-bottom: 10px;
+          }
+
+          
 
         }/*top_inner_text*/
 
         .top_inner_title{
           font-weight: 900;
           font-size: 42px;
+
+          @include tab{
+            font-size: 30px;
+          }
+
+          @include sp{
+            font-size: 24px;
+          }
+
+
         }/*inner_title*/
 
       }/*mv-inner-teext*/
@@ -456,23 +512,48 @@ body{
 
 
 
-.intro_top{
-  margin-top: 136px;
-  margin-bottom: 120px;
+  .intro_top{
+    margin-top: 136px;
+    margin-bottom: 120px;
 
-  .intro_wrap{
-      text-align: center;
-      .top_text{
-          font-size: 25px;
-          color: #6B7483;
-          line-height: 2;
-          font-weight: bold;
-          letter-spacing: 0.625px;
-          margin-bottom: 98px;
-      }/*text*/
+    @include tab{
+      margin-top: 80px;
+      margin-bottom: 70px;  
+    }
 
-  }/*wrap*/
-}/*introtop*/
+    @include sp{
+      margin-top: 50px;
+      margin-bottom: 50px;  
+    }
+  
+    .intro_wrap{
+        text-align: center;
+
+        .top_text{
+            font-size: 25px;
+            color: #6B7483;
+            line-height: 2;
+            font-weight: bold;
+            letter-spacing: 0.625px;
+            margin-bottom: 98px;
+
+            @include pc(){
+              font-size: 22px;
+            }
+
+            @include tab{
+              font-size: 18px;
+              width: 80%;
+              margin: 0 auto;
+            }
+
+            @include sp{
+              font-size: 15px;
+            }
+
+        }/*text*/
+    }/*wrap*/
+  }/*introtop*/
 
 
 
@@ -481,18 +562,18 @@ body{
     background-size: auto;
     background-position: top;
     margin-top: 85px;
-    margin-right: 40px;
-    margin-left: 40px;
+    padding-right: 40px;
+    padding-left: 40px;
 
     @include tab{
-      margin-right: 25px;
-      margin-left: 25px;  
+      padding-right: 25px;
+      padding-left: 25px;  
     }
 
     @include sp{
       margin-top: 35px; 
-      margin-right: 15px;
-      margin-left: 15px;  
+      padding-right: 15px;
+      padding-left: 15px;  
     }
 
 
@@ -513,6 +594,11 @@ body{
         @include tab{
           padding: 67px 30px 70px 30px;
         }/*pc*/
+
+        @include sp-second(){
+          padding: 67px 18px 70px 18px;
+        }/*pc*/
+
       
           h2{
               @include h2_title;
@@ -525,19 +611,42 @@ body{
               
 
               ul{
-                  padding-left: 48px;
-                  padding-top: 42px;
-                  padding-bottom: 39px;
+                padding-left: 48px;
+                padding-top: 42px;
+                padding-bottom: 39px;
+                padding-right: 25px;
 
-                  li{
-                      list-style: none;
-                      font-size: 22px;
-                      line-height: 2.5;
+                @include sp{
+                  padding-top: 28px;
+                  padding-bottom: 28px;
+                  padding-left: 28px;
+                }
 
-                      img{
-                          margin-right: 13px;
-                      }/*img*/
+                li{
+                    list-style: none;
+                    font-size: 22px;
+                    line-height: 2.5;
 
+                    @include pc{
+                      font-size: 20px;
+                    }
+
+                    @include tab{
+                      font-size: 18px;
+                      line-height: 1.6;
+                      margin-bottom: 20px;
+                    }
+
+                    img{
+                        margin-right: 13px;
+
+
+                    @include sp{
+                      width: 20px;
+                    }
+
+
+                    }/*img*/
                   }/*li*/
               }/*ul*/
           }/*checkbox*/
@@ -545,7 +654,7 @@ body{
           .example{
             margin-bottom: 109px;
 
-            img{
+            .gray_img{
               display: flex;
               margin: 0 auto;
 
@@ -554,14 +663,29 @@ body{
                 width: 100%;
               }
 
+              @include sp{
+                display: none;
+              }
+
             }
+
+            .sp_gray_img{
+              display: none;
+
+              @include sp{
+                display: block;
+                margin: 0 auto;
+              }
+
+            }
+
+
             &_block{
               display: flex;
               justify-content: center;
 
               @include pc{
                 display: block;
-
               }
 
               .example_box{
@@ -570,6 +694,10 @@ body{
                 @include pc{
                   justify-content: center;
                   margin-top: 50px;
+                }
+
+                
+                @include sp{
                 }
 
                 #female_pic{
@@ -581,6 +709,18 @@ body{
                     width: 120px;
                     height: 360px;
                   }/*pc*/
+
+                  @include tab{
+                    width: 90px;
+                    height: 300px;
+                  }
+
+                  @include sp{
+                    margin-left: 20px;
+                    height: 280px;
+                    width: 79px;
+                    display: flex;
+                  }
 
                 }
 
@@ -594,18 +734,32 @@ body{
                     height: 360px;
                   }/*pc*/
 
+                  @include sp{
+                    margin-right: 10px;
+                    margin-left: 0px;
+                    height: 280px;
+                    width: 79px;
+                    display: flex;
+                  }
 
                 }
 
                 .profile_block{
                   margin-top: 34px;
 
+                  @include sp{
+                    width: 200px;
+                    margin-top: 0px;
+                  }
+
+                  @include sp-second(){
+                  }
+
+
                   .name{
                     color: #989898;
                     font-size: 15px;
                     margin-bottom: 14px;
-                
-                
                   }/*name*/
 
                   .check{
@@ -629,6 +783,10 @@ body{
                     color: #F79E46;
                     font-weight: 900;
                     letter-spacing: 0.5px;
+
+                    @include sp{
+                    }
+
                   }/*symptom*/
 
                   .profile_text{
@@ -639,7 +797,9 @@ body{
                     letter-spacing: 0.375px;
                     line-height: 1.8;
 
-                    @include pc{
+                    @include sp{
+                      margin-top: 17px;
+                      width: 100%;
                     }
 
                   }/*text*/
@@ -649,6 +809,7 @@ body{
             }/*block*/
           }/*example*/
 
+
           .concept{
             margin-bottom: 113px;
 
@@ -657,11 +818,24 @@ body{
               color: #F79E46;
               text-align: center;
               margin-bottom: 33px;
+
+              @include tab{
+                font-size: 24px;
+              }
+
+              @include sp{
+                font-size: 22px;
+              }
+
             }/*title*/
 
             .text{
               letter-spacing: 0.4px;
               line-height: 1.875;
+
+              @include tab{
+                font-size: 16px;
+              }
             }/*text*/
 
             #concept_last_text{
@@ -670,21 +844,40 @@ body{
 
             .concept-img{
               margin-bottom: 33px;
+
+              @include pc{
+                width: 100%;
+              }
+
+              @include sp{
+                display: none;
+              }
+
             }
 
+            .concept-img_sp{
+              display: none;
 
+              @include pc{
+                margin: 25px 0px;
+                display: initial;
+              }
+
+            }
 
           }/*concept*/
 
           .curriculum{
-
-
               .curriculum_text{
                   color: #222222;
                   line-height: 1.8;
                   letter-spacing: 0.4px;
                   margin-bottom: 40px;
                   text-align: center;
+
+                  @include pc{
+                    font-size: 14px;
+                  }
               }
 
               .curriculum_sub_title{
@@ -692,13 +885,30 @@ body{
                 font-size: 26px;
                 text-align: center;
                 margin-bottom: 28px;
+
+                @include tab{
+                  font-size: 24px;
+                }
+                @include sp{
+                  font-size: 20px;
+                }  
+
+          
+
               }/*curriculum_sub_title*/
 
               .flow{
                 margin-bottom: 148px;
 
+                @include tab{
+                  margin-bottom: 100px;
+                }
+
                 .arrow_down{
                   margin-left: 190px;
+                  @include sp{
+                    margin:  0 auto;
+                  }
                 }
 
                   .program{
@@ -710,10 +920,22 @@ body{
                       max-width: 784px;
                       margin: 0 auto;
 
+                      @include pc{
+                        flex-wrap: wrap;
+                        justify-content:center;
+                      }
+
 
                       .program_item{
                           text-align: center;
 
+                          @include pc{
+                            width: 280px;
+                          }
+
+                          @include sp{
+                            margin-bottom: 30px;
+                          }
 
                           h3{
                               color: #F79E46;
@@ -738,12 +960,20 @@ body{
 
                   }/*program*/
 
+                  .arrow_down{
+                    @include sp{
+                      display: flex;
+                      justify-content: center;
+                    }
+                  }
+
                   .program_second{
                     display: flex;
-                    justify-content: space-between;
-                    width: 784px;
-                    margin: 0 auto;
+                    justify-content: space-evenly;
 
+                    @include sp{
+                      display: block;
+                    }
 
                     .program_item{
                         background-color: #FFF9E8;
@@ -751,6 +981,16 @@ body{
                         padding: 36px 0px;
                         border-radius: 33px;
                         width: 334px;
+
+                        @include tab{
+                          width: 100%;
+                        }
+
+                        @include sp{
+                          display: block;
+                          margin-right: 0px;
+                          margin-left: 0px;
+                        }
 
                         h3{
                             color: #F79E46;
@@ -765,10 +1005,22 @@ body{
                             width: 156px;
                             border-radius: 50%;
                             box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+
+
+                            @include tab{
+                              width: 23vw;
+                            }
+
+                            @include sp{
+                              width:200px;
+                            }
+
                         }
                         .program_text{
                             font-size: 14px;
                             line-height: 1.6;
+
+    
                         }
 
                     }/*item*/
@@ -777,7 +1029,25 @@ body{
                       width: 70px;
                       height: 60px;
                       margin-top: 170px;
-                    }
+
+
+                      @include sp{
+                        display: none;
+                      }
+
+                    }/*arrowright*/
+
+                    
+                #arrow_down_middle{
+                  display: none;
+
+                  @include sp{
+                    display: flex;
+                    margin: 0 auto;
+                    
+                  }
+
+                }
 
                   }
               }/*flow*/
@@ -788,26 +1058,88 @@ body{
           .free_class_text{
             letter-spacing: 0.4px;
             line-height: 1.875;
+
+            @include tab{
+              font-size: 14px;
+            }
+
           }
           
           .consulting_flow{
             display: flex;
             margin-top: 28px;
+            width: 100%;
+
+            @include tab{
+              display: block;
+              text-align: center;
+            }
+
             &_box{
               text-align: center;
+
+              @include pc{
+                width: 70%;
+              }
+              @include tab{
+                margin:  0 auto;
+                width: 80%;
+              }
+
+              @include sp{
+                width: 100%;
+              }
+
 
               h3{
                 color: #F79E46;
                 font-size: 21px;
+
+                @include tab{
+                  padding-bottom: 20px;
+                }
               }
+
+              .consulting_flow_pic_sp{
+                display: none;
+                @include sp{
+                  display: initial;
+                  margin-bottom: 27px;
+                }
+
+              }
+
 
               #consulting_flow_pic{
                 margin-top: 22px ;
                 margin-bottom: 30px;
+
+              @include pc{
+                width: 70%;
+              }
+
+
+              @include sp{
+                width: 100%;
+              }
+
+
               }/*consulting_flow_pic*/
 
-              .text_on_box{
+              .consulting_flow_text{
+                font-weight: 500;
+                line-height: 1.88;
                 font-size: 17px;
+
+                .br_text{
+                  display: none;
+
+                  @include sp{
+                    display: block;
+                  }
+                }
+
+
               }
 
               .free_block{
@@ -815,6 +1147,11 @@ body{
                 padding: 30px 36px;
                 margin-top: 21px;
 
+                @include tab{
+                  padding: 30px 16px;
+                }
+
+           
                 .free_title{
                   font-size: 20px;
                   font-weight: bold;
@@ -822,15 +1159,18 @@ body{
                 }/*title*/
 
                 p{
-                  font-size: 16px;
-                  
+                  font-size: 14px;
                 }
-
-
-
               }/*free_block*/
 
             }/*box*/
+
+            img{
+              @include tab{
+                display: none;
+              }
+            }
+
           }/*consulting_flow*/
 
           .point_wrap{
@@ -840,11 +1180,31 @@ body{
                   display: flex;
                   justify-content: space-between;
 
+                  @include tab{
+                    display: block;
+                  }
+
                   .point_circle_block{
+
+                    .point_img_sp{
+                      display: none;
+
+                  @include sp{
+                    display: initial;
+                  }
+  
+  
+                    }
+
                       .point_block{
                           display: flex;
                           margin-bottom: 30px;
                           align-items: center;
+
+                          @include sp-second(){
+                            display: block;
+                            margin-top: 50px;
+                          }
 
                         .circle{
                             position: relative;
@@ -856,6 +1216,14 @@ body{
                             font-size: 18px;
                             font-weight: bold;
                             margin: 0 8px;
+
+                            @include sp{
+                            }
+
+                            @include sp-second(){
+                              margin: 0 auto;
+                              margin-bottom: 15px;
+                            }
                 
                 
                             p{
@@ -867,11 +1235,22 @@ body{
                               -webkit-transform: translateY(-50%);
                               transform: translateY(-50%);
                               text-align:center;    
-                              font-size: 15px;                             
-                            
+                              font-size: 15px;    
+                           
+                            @include sp{
+                            }
+
+
+                                          
                               span{
                                   display: block;
-                                  font-size: 18px;                             
+                                  font-size: 18px;  
+
+
+                            @include sp{
+                              font-size: 15px;  
+                            }
+
                               }/*span*/
 
                             }/*p*/
@@ -883,7 +1262,22 @@ body{
                             width: 371px;
                             margin-left: 18px;
                             letter-spacing: 0.4px;
-                            line-height: 1.875;              
+                            line-height: 1.875;
+
+                            
+                            @include pc{
+                              width: 60%;
+                            }
+
+                            @include tab{
+                              font-size: 14px;
+                            }
+
+                            @include sp-second(){
+                              margin: 0 auto;
+                              width: 90%;
+                            }
+                                        
                           }
 
 
@@ -906,7 +1300,20 @@ body{
                   }/*point_circle_block*/
 
                   .point_img{
+                    margin-left: 20px;
                     margin-right: 85px;
+
+                    @include pc{
+                      margin-right: 20px;
+                      height: 55vw;
+                    }
+
+
+                @include tab{
+                  display: none;
+                }
+
+
                   }
 
               }/*content*/
@@ -925,6 +1332,19 @@ body{
                 font-weight: bold;
                 border-radius: 8px;
                 letter-spacing: 4.3px;
+
+                @include tab{
+                  font-size: 18px;
+                }
+
+                @include sp{
+                  font-size: 23px;
+                  padding-top: 17px;
+                  padding-bottom: 17px;  
+                }
+
+           
+
             }
 
             .blue_box{
@@ -939,13 +1359,14 @@ body{
 
             #gray__fill{
                 background-color: #EAEEEF;
-                color: #FFFFFF;
                 color: #6B7483;
+                border: 2px solid #EAEEEF;
             }/*yellow_fill*/
 
             #orange__fill{
               background-color: #F79E46;
               color: #FFFFFF;
+              border: 2px solid #F79E46;
           }/*yellow_fill*/
 
             img{
@@ -953,6 +1374,11 @@ body{
                 height: 40px;
                 margin-bottom: 19px;
                 margin-top: 4px;
+
+                @include sp{
+                  margin-bottom: 10px;
+                }
+
             }
 
             .proceed_wrap{
@@ -962,19 +1388,46 @@ body{
                 justify-content: space-between;
                 margin-top: 40px;
 
+                @include tab{
+                  margin-bottom: 100px;
+                }
+
+                @include sp{
+                  margin-bottom: 70px;
+                }
+
                 .proceed_text_block{
                     width: 605px;
                     text-align: left;
+
+                    .proceed_img_sp{
+                      display: none;
+                      @include sp{
+                        display: block;
+                        height: 120px;
+                        width: 100%;
+                      }
+                    }
 
                     h3{
                         font-size: 20px;
                         color: #F79E46;
                         margin-top: 42px;
+
+                        @include sp{
+                          font-size: 16px;
+                        }
+
                     }
 
                     .proceed_text{
                         font-size: 16px;
                         font-weight: normal;
+
+                        @include tab{
+                          font-size: 14px;
+                        }
+
                     }/*text*/
 
 
@@ -983,6 +1436,11 @@ body{
                 img{
                     width: 215px;
                     height: 423px;
+
+                    @include sp{
+                      display: none;
+                    }
+
                 }
             }/*wrap*/
 
@@ -1005,9 +1463,28 @@ body{
                 flex-wrap: wrap;
                 margin-bottom: 149px;
 
+                @include tab{
+                  margin-bottom: 70px;
+                }
+
+                @include sp{
+                  display: block;
+                  margin-bottom: 70px;
+                }
+
+
+
             .profile_block{
                 width: 416px;
                 margin-top: 74px;
+
+                @include tab{
+                  width: 47%;
+                }
+
+                @include sp{
+                  width: 100%;
+                }
 
                 
                 
@@ -1016,6 +1493,17 @@ body{
                 img{
                   width: 160px;
                   height: 158px;
+
+                @include tab{
+                  width: 50%;
+                  height: 30%;
+                }
+
+                @include sp{
+                  width: 30%;
+                  height: 20%;
+                }
+
                 }
 
                 .profile_list{
@@ -1025,6 +1513,17 @@ body{
                         font-weight: bold;
                         font-size: 17px;
                         line-height: 1.88;
+
+                        @include tab{
+                          font-size: 15px;
+                        }
+
+
+                        @include sp{
+                          font-size: 13px;
+                        }
+
+
                     }/*li*/
                 }/*list*/
             }/*profile*/
@@ -1032,6 +1531,15 @@ body{
             .text{
                 line-height: 1.875;
                 margin-top: 29px;
+
+                @include tab{
+                  font-size: 14px;
+                  margin-top: 15px;
+                }
+                @include sp{
+                  font-size: 13px;
+                }
+
             }
 
             }/*block*/
@@ -1055,6 +1563,7 @@ body{
     @include sp{
       margin-bottom: 70px;
       margin-top: 90px;
+      text-align: center;
     }
 
     .contact_title{
@@ -1067,14 +1576,26 @@ body{
       }/*tab*/
 
       @include sp{
-        font-size: 20px;
+        display: none;
       }
 
-      @include sp-second(){
-        font-size: 18px;
+
+    }
+
+    .contact_title_sp{
+      display: none;
+
+      @include sp{
+        display: block;
+        font-size: 20px;
+        margin-bottom: 16px;
+        width: 100%;
+        line-height: 1.6;
+        font-weight: 500;
       }
 
     }
+
 
     .btn{
         width: 708px;
@@ -1089,12 +1610,11 @@ body{
         }
 
         @include sp{
-          width: 80%;
+          width: 92.5%;
           margin: 0 auto;
         }
 
         @include sp-second(){
-          width: 280px;
         }
 
         a{
@@ -1118,15 +1638,11 @@ body{
 
             @include sp{
               font-size: 20px;
-              height: 65px;
-              line-height: 65px;
+              height: 67px;
+              line-height: 67px;
             }
 
-            @include sp-second(){
-              font-size: 14px;
-              height: 60px;
-              line-height:60px;
-            }
+      
          
         }/*a*/
     }/*btn*/
@@ -1142,6 +1658,12 @@ body{
         font-weight: bold;
         font-size: 18px;
         letter-spacing: 0.45px;
+
+        @include sp{
+          font-size: 16px;
+          margin-top: 18px;
+          margin-bottom: 21px;
+        }
     }
 
     .contact_tel{
@@ -1165,7 +1687,7 @@ body{
             font-size: 26px;
 
             @include tab{
-              font-size: 20px;
+              font-size: 26px;
             }
 
           .number{
@@ -1179,6 +1701,9 @@ body{
 
             @include tab{
               font-size: 22px;
+            }
+            @include sp{
+              font-size: 28px;
             }
 
             img{

@@ -41,15 +41,17 @@ $sp-second: 425px;  // スマホ
     padding-left: 34px;
     height: 76px;
     line-height: 76px;
-    width: 880px;
+    max-width: 880px;
+    width: 100%;
     margin: 0 auto;
     margin-bottom: 34px;
     margin-top: 82px;
 
 
+
     @include tab{
       width: 100%;
-      height: 50px;
+      height: auto;
       line-height: 50px;
       font-size: 22px;
       padding-left: 20px;
@@ -60,7 +62,13 @@ $sp-second: 425px;  // スマホ
       font-size: 18px;
       padding-left: 10px;
     }
-
+    @include sp{
+      text-align: center;
+      margin-bottom: 20px;
+      padding-left: 0px;
+      height: 107px;
+      line-height: 107px;
+    }
 
 
 }
@@ -114,6 +122,10 @@ body{
         color: #6B7483;
         font-weight: bold;
 
+        @include tab{
+          display: none;
+        }
+
         .header_contact{
           text-align: center;
           padding-right: 24.4px;
@@ -154,7 +166,6 @@ body{
               }/*img*/
             }/*span*/
           }/*area*/
-
 
         }
 
@@ -205,6 +216,23 @@ body{
     .header_nav{
       margin-top: 39px;
 
+      @include tab{
+        display: none;
+        width: 350px;
+        height: 100%;
+        color: rgb(0, 0, 0);
+        height: 100vh;
+        background-color: #ffffff;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+        margin-top: 0px;
+        transform: translateX(0); /* right0まで-250px移動 */
+
+      }
+
       ul{
         display: flex;
         justify-content: center;
@@ -215,21 +243,42 @@ body{
           width: 650px;
         }
 
-        li{
+        @include tab{
+          display: inline-block;
+          padding-top: 80px;
+          padding-bottom: 80px;
+        }
+
+        .g-nav{
           border-right: 1px solid #222222;
+          color: #222222;
           list-style: none;
           -webkit-transform: skewX(150deg);
           -moz-transform: skewX(150deg);
           transform: skewX(150deg);
 
+          @include tab{
+            -webkit-transform: skewX(0deg);
+            -moz-transform: skewX(0deg);
+            transform: skewX(0deg); 
+            border-right: none;
+          }
+
           a{
             padding: 0 18px;
             display:block;
-            color: #222222;
             transform: skewX(-150deg);
             font-size: 18px;
             font-weight: bold;
             letter-spacing: 0.9px;
+
+
+          @include tab{
+            -webkit-transform: skewX(0deg);
+            -moz-transform: skewX(0deg);
+            transform: skewX(0deg); 
+          }
+
           }
 
         }/*li*/
@@ -241,24 +290,160 @@ body{
       }/*ul*/
     }/*nav*/
 
+
+  
+  .btn-gnavi{
+  
+    display: none;
+  
+    @include tab{
+      display: initial;
+        position: fixed;
+        top: 25px;
+        right: 4%;
+        width: 30px;
+        height: 24px;
+        z-index: 4;
+        cursor: pointer;
+        transition: all 400ms;
+        -webkit-transition:all 400ms;
+    }
+  
+    @include sp{
+      top: 20px;
+      right: 7%;
+    }
+  }
+  
+  
+  .btn-gnavi{
+    z-index: 1000;
+  
+    @include sp-second{
+    }
+
+    span{
+        @include tab{
+            position: absolute;
+            height: 3px;
+            background: black;
+            -webkit-transition: all 400ms;
+            transition: all 400ms;
+            right: 0;
+          }
+  
+          @include sp-second{
+            width: 45px;
+          }
+    
+  }/*span*/
+  
+    span:nth-of-type(1){
+  
+        @include tab{
+            top: 0;
+            z-index: 1000;
+            width: 40px;
+        }
+  
+        @include sp{
+          width: 17px;
+      }
+  
+    }/*span*/
+  
+    span:nth-of-type(2){
+  
+        @include tab{
+            top: 10px;
+            z-index: 1000;
+            width: 40px;
+        }
+  
+        @include sp{
+          width: 17px;
+          top: 5px;
+      }
+  
+    }/*span*/
+  
+    span:nth-of-type(3){
+        @include tab{
+            top: 20px;
+            z-index: 1000;
+            width: 40px;
+        }
+  
+        @include sp{
+          width: 17px;
+          top: 10px;
+      }
+  
+    }/*span*/
+    
+  
+  }/*btn-gnavi*/
+  
+  
+  
+ .btn-gnavi.hb-open span:nth-of-type(1) {
+    -webkit-transform: translateY(10px) rotate(-45deg);
+    transform: translateY(10px) rotate(-45deg);
+    transition: 0.5s;
+
+    @include sp{
+      -webkit-transform: translateY(5px) rotate(-45deg);
+      transform: translateY(5px) rotate(-45deg);
+    }
+
+  }
+  .btn-gnavi.hb-open span:nth-of-type(2) {
+    opacity: 0;
+  }
+  .btn-gnavi.hb-open span:nth-of-type(3) {
+    -webkit-transform:translateY(-10px) rotate(230deg);
+    transform: translateY(-10px) rotate(45deg);
+    transition: 0.5s;
+    width: 40px;
+
+    @include sp{
+      width: 17px;
+      -webkit-transform:translateY(-5px) rotate(230deg);
+      transform: translateY(-5px) rotate(45deg);  
+    }
+  }
     }/*warp*/
   }/*header*/
 
+
   .mainvisual{
     background-image: url(../img/common/mainvisual-2.png);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     height: 45vw;
     width: 100%;
     position: relative;
 
+    @include sp(){
+      background-size: 100% 100%;
+      height: 395px;
+      background-image: url(../img/common/mainvisual-2_sp.png);
+    }
+
 
     &_wrap{
       background-image: url(../img/service/mv-background.png);
-      background-size: contain;  
+      background-size: cover;  
       background-repeat: no-repeat;
       height: 45vw;
       width: 100%;
+
+
+      @include sp(){
+        background-size: 100% 100%;
+        height: 395px;
+        background-image: url(../img/common/mv-background_sp.png);
+      }
 
       .mv_inner_text{
         background-color: #FFFFFF;
@@ -275,14 +460,46 @@ body{
         background-image: url(../img/common/border-colorful.png);
         background-position: center;
 
+        @include pc{
+          padding: 50px 0px;
+          max-width: 500px;
+          background-size: 480px 130px;
+        }
+
+        @include tab{
+          max-width: 450px;
+          width: 90%;
+          padding: 30px 0px;
+          background-size: 410px 90px;
+        }
+
+
+        @include sp{
+          max-width: 306px;
+          width: 90%;
+          padding: 75px 0px 79px;
+          background-size: 240px 170px;
+        }
+
+
         .top_inner_title{
           font-weight: 900;
           font-size: 42px;
-        }/*inner_title*/
 
+          @include pc{
+            font-size: 38px;
+          }
+
+          @include tab{
+            font-size: 27px;
+          }
+
+          @include sp{
+            font-size: 24px;
+          }
+        }/*inner_title*/
       }/*mv-inner-teext*/
     }
-
   }/*mainvisual*/
 
 
@@ -309,16 +526,36 @@ body{
           padding: 94px 160px 134px 160px;
           box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.16);
           border-radius: 41px;
+
+          @include pc{
+            padding: 94px 50px 134px 50px;
+          }/*pc*/
+  
+          @include tab{
+            padding: 67px 30px 70px 30px;
+            display: block;
+          }/*pc*/
+  
+          @include sp-second(){
+            padding: 67px 18px 70px 18px;
+          }/*pc*/
   
 
           h2{
               @include h2_title;
-
           }/*h2*/
+
+          #first_title{
+            margin-top: 0px;
+          }
 
           .company_table{
               width: 100%;
               border-spacing: 13px 4px;
+
+              @include tab{
+                border-spacing: 6px 3px;
+              }
 
               tr{
                   th{
@@ -329,6 +566,17 @@ body{
                       width: 256px;
                       text-align: left;
                       letter-spacing: 2.6px;
+
+                      @include tab{
+                        font-size: 22px;
+                        padding: 35px 0 35px 35px;
+                      }
+                      @include sp{
+                        font-size: 9px;
+                        width: 89px;
+                        padding: 12px 17px 12px 17px;
+                      }
+                    
                   }
 
                   td{
@@ -337,7 +585,16 @@ body{
                     font-size: 22px;
                     line-height: 2.27;
                     letter-spacing: 2.2px;
-
+                    @include tab{
+                      font-size: 18px;
+                      line-height: 1.5;
+                      padding: 36px 15px 36px 36px;
+                    }
+                    @include sp{
+                      font-size: 7px;
+                      padding: 12px 17px 12px 17px;
+                    }
+                  
                 }
               }/*tr*/
           }/*company_table*/
@@ -345,11 +602,20 @@ body{
           .text{
               line-height: 1.875;
               letter-spacing: 0.4px;
+              @include tab{
+                font-size: 14px;
+              }
           }/*text*/
 
           .group_table{
               display: flex;
               margin-bottom: 4px;
+
+              @include sp{
+                display: block;
+                width: 100%;
+                margin-bottom:0px;
+              }
 
               .group_left{
                   background-color: #F2F2F2;
@@ -358,7 +624,12 @@ body{
                   padding-left: 17px;
                   padding-right: 52px;
                   margin-right: 2px;
-                  height: 383px;
+                  height: auto;
+                  @include sp{
+                    width: 100%;
+                    margin-bottom:4px;
+                    padding-bottom: 28px;
+                  }
               }/*right*/
 
               .group_right{
@@ -368,7 +639,12 @@ body{
                 background-color: #f2f2f2;
                 padding-right: 22px;
                 margin-left: 2px;
-                height: 383px;
+                height: auto;
+                @include sp{
+                  width: 100%;
+                  margin-bottom:4px;
+                  padding-bottom: 28px;
+                }
             }/*right*/
 
             .group_name{
@@ -376,6 +652,10 @@ body{
                 font-size: 22px;
                 letter-spacing: 2.2px;
                 margin-bottom: 23px;
+
+                @include tab{
+                  font-size: 15px;
+                }
             }/*name*/
 
             .group_business{
@@ -384,6 +664,11 @@ body{
                 font-size: 20px;
                 letter-spacing: 0.5px;
                 margin-bottom: 4px;
+
+                @include tab{
+                  font-size: 14px;
+                }
+
             }/*group_business*/
 
             .group_content{
@@ -391,13 +676,34 @@ body{
                 font-size: 20px;
                 letter-spacing: 0.5px;
                 margin-bottom: 23px;
+
+                @include tab{
+                  font-size: 16px;
+                }
+
+                @include tab{
+                  margin-bottom: 0px;
+                  padding-bottom: 30px;
+                  font-size: 14px;
+                }
+
             }
 
             .group_list{
+              @include tab{
+                padding-bottom: 20px;
+              }
                 li{
                     line-height:1.3 ;
                     text-indent: 1.3em;
                     font-size: 20px;
+                    @include tab{
+                      font-size: 16px;
+                      line-height:1.6 ;
+                    }
+                    @include sp{
+                      font-size: 14px;
+                    }
                 }
             }/*list*/
 
@@ -414,6 +720,7 @@ body{
   }/*content*/
 
 
+
   .contact_wrap{
     margin-bottom: 94px;
     margin-top: 109px;
@@ -421,6 +728,7 @@ body{
     @include sp{
       margin-bottom: 70px;
       margin-top: 90px;
+      text-align: center;
     }
 
     .contact_title{
@@ -433,14 +741,26 @@ body{
       }/*tab*/
 
       @include sp{
-        font-size: 20px;
+        display: none;
       }
 
-      @include sp-second(){
-        font-size: 18px;
+
+    }
+
+    .contact_title_sp{
+      display: none;
+
+      @include sp{
+        display: block;
+        font-size: 20px;
+        margin-bottom: 16px;
+        width: 100%;
+        line-height: 1.6;
+        font-weight: 500;
       }
 
     }
+
 
     .btn{
         width: 708px;
@@ -455,12 +775,11 @@ body{
         }
 
         @include sp{
-          width: 80%;
+          width: 92.5%;
           margin: 0 auto;
         }
 
         @include sp-second(){
-          width: 280px;
         }
 
         a{
@@ -484,15 +803,11 @@ body{
 
             @include sp{
               font-size: 20px;
-              height: 65px;
-              line-height: 65px;
+              height: 67px;
+              line-height: 67px;
             }
 
-            @include sp-second(){
-              font-size: 14px;
-              height: 60px;
-              line-height:60px;
-            }
+      
          
         }/*a*/
     }/*btn*/
@@ -508,6 +823,12 @@ body{
         font-weight: bold;
         font-size: 18px;
         letter-spacing: 0.45px;
+
+        @include sp{
+          font-size: 16px;
+          margin-top: 18px;
+          margin-bottom: 21px;
+        }
     }
 
     .contact_tel{
@@ -531,7 +852,7 @@ body{
             font-size: 26px;
 
             @include tab{
-              font-size: 20px;
+              font-size: 26px;
             }
 
           .number{
@@ -545,6 +866,9 @@ body{
 
             @include tab{
               font-size: 22px;
+            }
+            @include sp{
+              font-size: 28px;
             }
 
             img{
