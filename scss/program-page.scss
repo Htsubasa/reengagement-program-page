@@ -70,7 +70,6 @@ html{
 body{
   font-family: 'Noto Sans JP', sans-serif;
 
-  
   header{
     .header_wrap{
       max-width: 1500px;
@@ -82,6 +81,9 @@ body{
         max-width: 1024px;
         width: 95%;
       }
+
+      @include sp{
+        padding: 14px 0 14px ;      }
 
       .header_block{
         display: flex;
@@ -101,9 +103,17 @@ body{
             font-size: 30px;
           }
 
+          @include sp{
+            font-size: 18px;
+          }
+
           .header_logo_sub{
             display: block;
             font-size: 15px;
+
+            @include sp{
+              font-size: 10px;
+            }
           }/*logo_sub*/
         }/*h1*/
       }/*logo*/
@@ -291,7 +301,7 @@ body{
     @include tab{
       display: initial;
         position: fixed;
-        top: 25px;
+        top: 50px;
         right: 4%;
         width: 30px;
         height: 24px;
@@ -302,7 +312,7 @@ body{
     }
   
     @include sp{
-      top: 20px;
+      top: 30px;
       right: 7%;
     }
   }
@@ -318,7 +328,6 @@ body{
         @include tab{
             position: absolute;
             height: 3px;
-            background: black;
             -webkit-transition: all 400ms;
             transition: all 400ms;
             right: 0;
@@ -336,10 +345,11 @@ body{
             top: 0;
             z-index: 1000;
             width: 40px;
+            background-color: #ED974C;
         }
   
         @include sp{
-          width: 17px;
+          width: 21px;
       }
   
     }/*span*/
@@ -350,11 +360,12 @@ body{
             top: 10px;
             z-index: 1000;
             width: 40px;
+            background-color: #F7CD68;
         }
   
         @include sp{
-          width: 17px;
-          top: 5px;
+          width: 21px;
+          top: 7px;
       }
   
     }/*span*/
@@ -364,11 +375,12 @@ body{
             top: 20px;
             z-index: 1000;
             width: 40px;
+            background-color: #71C1C0;
         }
   
         @include sp{
-          width: 17px;
-          top: 10px;
+          width: 21px;
+          top: 14px;
       }
   
     }/*span*/
@@ -404,14 +416,13 @@ body{
       transform: translateY(-5px) rotate(45deg);  
     }
   }
-
-
-
     }/*warp*/
   }/*header*/
 
+
+
   .mainvisual{
-    background-image: url(../img/common/mainvisual-2.png);
+    background-image: url(../img/common/mv.png);
     background-size: cover;
     background-repeat: no-repeat;
     height: 45vw;
